@@ -10,6 +10,7 @@ import remindersRoutes from "./routes/reminders.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 import settingsRoutes from "./routes/settings.routes.js";
 import { startReminderScheduler } from "./jobs/reminderScheduler.js";
+import { ensureDefaults } from "./bootstrap/ensureDefaults.js";
 import { apiLimiter } from "./middleware/rateLimit.js";
 import { JSON_BODY_LIMIT } from "./config/security.js";
 
@@ -67,7 +68,17 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: "Internal server error" });
 });
 
-app.listen(PORT, () => {
-  console.log(`API running at http://localhost:${PORT}`);
-  startReminderScheduler();
-});
+async function start() {
+  try {
+    await ensureDefaults();
+  } catch (err) {
+    console.error("[bootstrap] startup init failed:", err);
+  }
+
+  app.listen(PORT, () => {
+    console.log(`API running at http://localhost:${PORT}`);
+    startReminderScheduler();
+  });
+}
+
+start();

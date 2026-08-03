@@ -17,6 +17,8 @@ services:
         generateValue: true
       - key: FRONTEND_URL
         sync: false
+      - key: SEED_ADMIN_PASSWORD
+        sync: false
       - key: SMTP_HOST
         sync: false
       - key: SMTP_PORT
