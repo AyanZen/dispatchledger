@@ -3,6 +3,7 @@ import { requireAuth, requireAdmin } from "@/server/auth.js";
 import { logActivity } from "@/server/utils/helpers.js";
 import { json } from "@/server/http.js";
 import { apiLimiter } from "@/server/rateLimit.js";
+import { isSuperAdmin, ROLES } from "@/lib/roles.js";
 
 export async function DELETE(request, { params }) {
   const limited = apiLimiter(request);
@@ -21,9 +22,14 @@ export async function DELETE(request, { params }) {
   const user = await prisma.user.findUnique({ where: { id } });
   if (!user) return json({ error: "Employee not found." }, 404);
 
-  if (user.role === "admin") {
-    const adminCount = await prisma.user.count({ where: { role: "admin" } });
-    if (adminCount <= 1) {
+  if (isSuperAdmin(user.role)) {
+    return json({ error: "Cannot delete the super admin account." }, 400);
+  }
+
+  if (user.role === ROLES.ADMIN) {
+    const adminCount = await prisma.user.count({ where: { role: ROLES.ADMIN } });
+    const actorIsSuperAdmin = isSuperAdmin(auth.user.role);
+    if (!actorIsSuperAdmin && adminCount <= 1) {
       return json({ error: "Cannot delete the only admin account." }, 400);
     }
   }

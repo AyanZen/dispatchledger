@@ -2,9 +2,11 @@
 
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 import { computeFranchiseLedger, enrichOrdersWithPayments } from "@/lib/franchiseLedger";
+import { todayStr } from "@/utils/date";
 import {
-  authApi, setToken, franchisesApi, ordersApi, paymentsApi,
+  authApi, franchisesApi, ordersApi, paymentsApi,
   remindersApi, usersApi, settingsApi,
 } from "@/lib/api";
 
@@ -22,6 +24,7 @@ export function usePortalData() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const { data: session, status, update: updateSession } = useSession();
 
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
@@ -60,25 +63,33 @@ export function usePortalData() {
   }, []);
 
   useEffect(() => {
+    if (status === "loading") return;
+
+    if (status !== "authenticated" || !session?.user) {
+      setCurrentUser(null);
+      setLoading(false);
+      return;
+    }
+
+    setCurrentUser(session.user);
+    setLoading(true);
+    let cancelled = false;
+
     (async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        setLoading(false);
-        return;
-      }
       try {
         const data = await authApi.bootstrap();
-        applyBootstrap(data, setters);
-        const stored = JSON.parse(localStorage.getItem("user") || "null");
-        if (stored) setCurrentUser(stored);
+        if (!cancelled) applyBootstrap(data, setters);
       } catch {
-        setToken(null);
-        localStorage.removeItem("user");
+        /* Session is still valid; empty ledger is safer than a login loop. */
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     })();
-  }, []);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [status, session?.user?.id]);
 
   function showToast(message, variant = "success") {
     setToast({ message, variant });
@@ -168,26 +179,9 @@ export function usePortalData() {
     return rs[0] || null;
   }
 
-  async function handleLogin(username, password) {
-    try {
-      const res = await authApi.login(username, password);
-      setToken(res.token);
-      localStorage.setItem("user", JSON.stringify(res.user));
-      setCurrentUser(res.user);
-      applyBootstrap(res, setters);
-      router.push("/dashboard");
-      return null;
-    } catch (e) {
-      return e.message;
-    }
-  }
-
   async function handleLogout() {
-    try { await authApi.logout(); } catch { /* ignore */ }
-    setToken(null);
-    localStorage.removeItem("user");
     setCurrentUser(null);
-    router.push("/login");
+    await signOut({ callbackUrl: "/login" });
   }
 
   async function addFranchise(data) {
@@ -270,6 +264,18 @@ export function usePortalData() {
       showToast(e.message, "error");
       throw e;
     }
+  }
+
+  async function quickPay({ franchiseId, amount, method, reference }) {
+    await paymentsApi.create({
+      franchiseId,
+      amount: Number(amount),
+      date: todayStr(),
+      method,
+      reference: reference || "",
+    });
+    await refreshData();
+    showToast("Payment logged");
   }
 
   async function updateOrder(id, data) {
@@ -356,10 +362,9 @@ export function usePortalData() {
   async function changePassword(currentPassword, newPassword) {
     try {
       const res = await authApi.changePassword(currentPassword, newPassword);
-      if (res.token) {
-        setToken(res.token);
-        localStorage.setItem("user", JSON.stringify(res.user));
-        setCurrentUser(res.user);
+      if (res.user) setCurrentUser(res.user);
+      if (res.tokenVersion != null) {
+        await updateSession({ tokenVersion: res.tokenVersion });
       }
       showToast("Password updated");
       return null;
@@ -414,13 +419,13 @@ export function usePortalData() {
     activityLog,
     reminderCountFor,
     lastReminderFor,
-    handleLogin,
     handleLogout,
     addFranchise,
     updateFranchise,
     deleteFranchise,
     addOrder,
     addPayment,
+    quickPay,
     updateOrder,
     deleteOrder,
     updatePayment,

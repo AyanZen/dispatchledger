@@ -2,8 +2,9 @@ import bcrypt from "bcryptjs";
 import prisma from "../server/lib/prisma.js";
 import { BCRYPT_ROUNDS } from "../server/config/security.js";
 import { validatePassword } from "../server/utils/password.js";
+import { sanitizeEmail } from "../server/utils/sanitize.js";
 
-const username = process.argv[2] || "admin";
+const identifier = process.argv[2] || "admin@dispatch.local";
 const newPassword = process.argv[3] || "admin123";
 
 const passwordError = validatePassword(newPassword);
@@ -12,9 +13,13 @@ if (passwordError) {
   process.exit(1);
 }
 
-const user = await prisma.user.findUnique({ where: { username } });
+const email = sanitizeEmail(identifier);
+const user = email
+  ? await prisma.user.findUnique({ where: { email } })
+  : await prisma.user.findUnique({ where: { username: identifier } });
+
 if (!user) {
-  console.error(`User "${username}" not found.`);
+  console.error(`User "${identifier}" not found.`);
   process.exit(1);
 }
 
@@ -27,6 +32,6 @@ await prisma.user.update({
   },
 });
 
-console.log(`Password reset for "${username}" (${user.name}, ${user.role}).`);
-console.log(`Login with: ${username} / ${newPassword}`);
+console.log(`Password reset for "${user.email}" (${user.name}, ${user.role}).`);
+console.log(`Login with: ${user.email} / ${newPassword}`);
 await prisma.$disconnect();

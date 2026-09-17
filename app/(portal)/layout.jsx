@@ -12,7 +12,7 @@ import LoadingScreen from "@/components/layout/LoadingScreen";
 import MobileHeader from "@/components/layout/MobileHeader";
 import Sidebar from "@/components/layout/Sidebar";
 import { usePortal } from "@/components/providers/PortalProvider";
-import { useTheme } from "@/hooks/useTheme";
+import { isAdminLevel } from "@/lib/roles";
 
 function PortalShell({ children }) {
   const router = useRouter();
@@ -51,14 +51,14 @@ function PortalShell({ children }) {
     updateFranchise,
     addOrder,
     addPayment,
+    quickPay,
     updateOrder,
     updatePayment,
     addUser,
   } = usePortal();
 
-  const isAdmin = currentUser?.role === "admin";
+  const isAdmin = isAdminLevel(currentUser?.role);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     if (!loading && !currentUser) {
@@ -119,8 +119,6 @@ function PortalShell({ children }) {
           <MobileHeader
             menuOpen={menuOpen}
             onToggle={() => setMenuOpen((o) => !o)}
-            theme={theme}
-            onToggleTheme={toggleTheme}
           />
           <Sidebar
             currentUser={currentUser}
@@ -128,8 +126,9 @@ function PortalShell({ children }) {
             alertCount={alertFranchises.length}
             mobileOpen={menuOpen}
             onClose={() => setMenuOpen(false)}
-            theme={theme}
-            onToggleTheme={toggleTheme}
+            franchises={franchiseSummaries}
+            onPay={quickPay}
+            onDeliver={(id) => setShowAddOrderFor(id)}
           />
           <main className="main view-fade" key={pathname}>
             {toast && (

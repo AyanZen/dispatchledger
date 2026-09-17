@@ -4,12 +4,16 @@ import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { usePortal } from "@/components/providers/PortalProvider";
 import FranchiseDashboard from "@/components/franchise/FranchiseDashboard";
+import PageHeader from "@/components/common/PageHeader";
+import { isAdminLevel } from "@/lib/roles";
 
 export default function FranchiseDetailPage() {
   const router = useRouter();
   const params = useParams();
-  const id = params?.id;
+  const rawId = params?.id;
+  const id = Array.isArray(rawId) ? rawId[0] : rawId;
   const {
+    loading,
     franchiseSummaries,
     ordersByFranchise,
     paymentsByFranchise,
@@ -31,7 +35,7 @@ export default function FranchiseDetailPage() {
   } = usePortal();
 
   const franchise = franchiseSummaries.find((f) => f.id === id);
-  const isAdmin = currentUser?.role === "admin";
+  const isAdmin = isAdminLevel(currentUser?.role);
 
   useEffect(() => {
     if (id) setSelectedFranchiseId(id);
@@ -43,7 +47,16 @@ export default function FranchiseDetailPage() {
     }
   }, [franchise, franchiseSummaries.length, router]);
 
-  if (!franchise) return null;
+  if (!franchise) {
+    return (
+      <div>
+        <PageHeader
+          title="Franchise"
+          subtitle={loading || franchiseSummaries.length === 0 ? "Loading ledger…" : "Not on the books"}
+        />
+      </div>
+    );
+  }
 
   return (
     <FranchiseDashboard

@@ -85,7 +85,7 @@ export default function FranchisesList({
                 <td className="num">{fmtMoney(f.totalTaken)}</td>
                 <td className="num">{fmtMoney(f.totalPaid)}</td>
                 <td className="num strong">{fmtMoney(f.totalDue)}</td>
-                <td><Stamp status={f.status} /></td>
+                <td><Stamp status={f.orderCount ? f.status : "none"} /></td>
                 <td>
                   <div className="flex items-center justify-end gap-1">
                     {isAdmin && (
@@ -124,7 +124,7 @@ export default function FranchisesList({
                 <div className="cell-title text-base">{f.name}</div>
                 <div className="cell-sub mt-1">{f.contact || "—"}</div>
               </div>
-              <Stamp status={f.status} />
+              <Stamp status={f.orderCount ? f.status : "none"} />
             </div>
 
             <div className="flex flex-col gap-3">
@@ -134,7 +134,7 @@ export default function FranchisesList({
               </div>
               <div className="flex items-center justify-between rounded-xl bg-muted/50 px-4 py-3">
                 <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Paid</span>
-                <span className="font-mono text-sm font-medium text-[var(--ok)]">{fmtMoney(f.totalPaid)}</span>
+                <span className="font-mono text-sm font-medium text-(--ok)">{fmtMoney(f.totalPaid)}</span>
               </div>
               <div className="flex items-center justify-between rounded-xl bg-muted/50 px-4 py-3">
                 <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Due</span>

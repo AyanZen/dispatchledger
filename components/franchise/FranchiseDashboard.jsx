@@ -18,6 +18,7 @@ import { fmtMoney } from "@/utils/format";
 import StatusBadge from "./StatusBadge";
 import FranchiseDeliveries from "./FranchiseDeliveries";
 import ConfirmDeleteDialog from "@/components/common/ConfirmDeleteDialog";
+import PageHeader from "@/components/common/PageHeader";
 
 const chartConfig = {
   dispatched: { label: "Dispatched", color: "var(--chart-1)" },
@@ -72,56 +73,54 @@ export default function FranchiseDashboard({
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div className="space-y-2">
-          <Button variant="ghost" size="sm" className="-ml-2 w-fit" onClick={onBack}>
-            <ArrowLeft /> Back to franchises
-          </Button>
-          <div className="flex flex-wrap items-center gap-3">
-            <h1 className="text-2xl font-semibold tracking-tight">{franchise.name}</h1>
-            <StatusBadge status={franchise.status} />
-          </div>
-          {contactLine && (
-            <p className="text-sm text-muted-foreground">{contactLine}</p>
-          )}
-          {franchise.address && (
-            <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
-              <MapPin className="size-3.5" /> {franchise.address}
-            </p>
-          )}
-        </div>
-        <div className="flex w-full flex-wrap gap-2 sm:w-auto sm:justify-end">
-          {isAdmin && (
-            <Button variant="destructive" onClick={() => setShowDelete(true)}>
-              <Trash2 /> Delete
+      <button type="button" className="link-btn back-link" onClick={onBack}>
+        <ArrowLeft size={15} /> Franchises
+      </button>
+      <PageHeader
+        title={franchise.name}
+        subtitle={contactLine || "No contact details on file"}
+        action={
+          <div className="row-gap">
+            {isAdmin && (
+              <Button variant="destructive" onClick={() => setShowDelete(true)}>
+                <Trash2 /> Delete
+              </Button>
+            )}
+            {isAdmin && (
+              <Button variant="outline" onClick={onEdit}>
+                <Pencil /> Edit
+              </Button>
+            )}
+            {isAdmin && (
+              <Button
+                variant="outline"
+                onClick={onImport}
+                title="Import past deliveries or payments from a CSV or Excel file"
+              >
+                <Upload /> Import past records
+              </Button>
+            )}
+            <Button onClick={onAddOrder}>
+              <Plus /> New delivery
             </Button>
-          )}
-          {isAdmin && (
-            <Button variant="outline" onClick={onEdit}>
-              <Pencil /> Edit
-            </Button>
-          )}
-          {isAdmin && (
             <Button
-              variant="outline"
-              onClick={onImport}
-              title="Import past deliveries or payments from a CSV or Excel file"
+              variant="secondary"
+              onClick={() => onAddPayment()}
+              disabled={franchise.totalDue <= 0}
+              title={franchise.totalDue <= 0 ? "No outstanding balance" : "Record payment against account balance"}
             >
-              <Upload /> Import past records
+              <IndianRupee /> Account payment
             </Button>
-          )}
-          <Button onClick={onAddOrder}>
-            <Plus /> New delivery
-          </Button>
-          <Button
-            variant="secondary"
-            onClick={() => onAddPayment()}
-            disabled={franchise.totalDue <= 0}
-            title={franchise.totalDue <= 0 ? "No outstanding balance" : "Record payment against account balance"}
-          >
-            <IndianRupee /> Account payment
-          </Button>
-        </div>
+          </div>
+        }
+      />
+      <div className="flex flex-wrap items-center gap-3">
+        <StatusBadge status={franchise.status} />
+        {franchise.address && (
+          <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
+            <MapPin className="size-3.5" /> {franchise.address}
+          </p>
+        )}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

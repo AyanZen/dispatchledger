@@ -2,24 +2,22 @@
 
 import { Suspense, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 import MotionBackground from "@/components/layout/MotionBackground";
 import LoginScreen from "@/components/auth/LoginScreen";
 import LoadingScreen from "@/components/layout/LoadingScreen";
-import { useTheme } from "@/hooks/useTheme";
-import { usePortal } from "@/components/providers/PortalProvider";
 
 function LoginContent() {
   const router = useRouter();
-  const { loading, currentUser, handleLogin } = usePortal();
-  const { theme, toggleTheme } = useTheme();
+  const { status } = useSession();
 
   useEffect(() => {
-    if (!loading && currentUser) {
+    if (status === "authenticated") {
       router.replace("/dashboard");
     }
-  }, [loading, currentUser, router]);
+  }, [status, router]);
 
-  if (loading) {
+  if (status === "loading" || status === "authenticated") {
     return (
       <div className="fp-app">
         <MotionBackground />
@@ -28,12 +26,29 @@ function LoginContent() {
     );
   }
 
-  if (currentUser) return null;
+  async function handleLogin(email, password) {
+    const result = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+      callbackUrl: "/dashboard",
+    });
+
+    if (!result) return "Login failed.";
+    if (result.error) {
+      if (result.status === 429) return "Too many login attempts. Please try again in 15 minutes.";
+      return "Invalid email or password.";
+    }
+
+    router.replace("/dashboard");
+    router.refresh();
+    return null;
+  }
 
   return (
     <div className="fp-app">
       <MotionBackground />
-      <LoginScreen onLogin={handleLogin} theme={theme} onToggleTheme={toggleTheme} />
+      <LoginScreen onLogin={handleLogin} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import prisma from "@/server/lib/prisma.js";
-import { requireAuth, signToken, sanitizeUser } from "@/server/auth.js";
+import { requireAuth, sanitizeUser } from "@/server/auth.js";
 import { passwordLimiter } from "@/server/rateLimit.js";
 import { logActivity } from "@/server/utils/helpers.js";
 import { validatePassword } from "@/server/utils/password.js";
@@ -48,8 +48,7 @@ export async function PATCH(request) {
     await logActivity(auth.user, "change_password", `${user.name} changed their login password`);
 
     const safeUser = sanitizeUser(updated);
-    const token = signToken(updated);
-    return json({ ok: true, token, user: safeUser });
+    return json({ ok: true, user: safeUser, tokenVersion: updated.tokenVersion });
   } catch (err) {
     console.error("[auth] password change failed:", err);
     return json({ error: safeErrorMessage(err, "Could not update password.") }, 500);

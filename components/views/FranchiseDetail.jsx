@@ -32,7 +32,7 @@ export default function FranchiseDetail({
         <StatCard label="Total taken" value={fmtMoney(franchise.totalTaken)} tone="ink" />
         <StatCard label="Total paid" value={fmtMoney(franchise.totalPaid)} tone="ink" />
         <StatCard label="Total due" value={fmtMoney(franchise.totalDue)} tone={franchise.totalDue > 0 ? "warn" : "ok"} />
-        <StatCard label="Standing" value={<Stamp status={franchise.status} />} tone="ink" />
+        <StatCard label="Standing" value={<Stamp status={orders.length ? franchise.status : "none"} />} tone="ink" />
       </div>
 
       {franchise.address && (

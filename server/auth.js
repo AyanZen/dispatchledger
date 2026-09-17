@@ -1,55 +1,52 @@
-import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
+import { auth } from "@/auth";
 import prisma from "./lib/prisma.js";
-
-export function signToken(user) {
-  return jwt.sign(
-    {
-      id: user.id,
-      username: user.username,
-      name: user.name,
-      role: user.role,
-      tokenVersion: user.tokenVersion ?? 0,
-    },
-    process.env.JWT_SECRET,
-    { expiresIn: process.env.JWT_EXPIRES_IN || "24h" }
-  );
-}
+import { isAdminLevel, isSuperAdmin, ROLES } from "@/lib/roles.js";
 
 export function sanitizeUser(user) {
   const { password, ...safe } = user;
   return safe;
 }
 
-export async function requireAuth(request) {
-  const header = request.headers.get("authorization");
-  if (!header?.startsWith("Bearer ")) {
+export function sessionUser(session) {
+  const user = session?.user;
+  if (!user?.id) return null;
+  return {
+    id: user.id,
+    email: user.email,
+    name: user.name,
+    username: user.username,
+    role: user.role,
+    tokenVersion: user.tokenVersion ?? 0,
+    createdAt: user.createdAt || null,
+  };
+}
+
+export async function requireAuth() {
+  const session = await auth();
+  const user = sessionUser(session);
+  if (!user) {
     return { error: NextResponse.json({ error: "Unauthorized" }, { status: 401 }) };
   }
 
-  try {
-    const token = header.slice(7);
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
+  const dbUser = await prisma.user.findUnique({
+    where: { id: user.id },
+    select: {
+      id: true,
+      username: true,
+      email: true,
+      name: true,
+      role: true,
+      tokenVersion: true,
+      createdAt: true,
+    },
+  });
 
-    const user = await prisma.user.findUnique({
-      where: { id: payload.id },
-      select: {
-        id: true,
-        username: true,
-        name: true,
-        role: true,
-        tokenVersion: true,
-      },
-    });
-
-    if (!user || user.tokenVersion !== (payload.tokenVersion ?? 0)) {
-      return { error: NextResponse.json({ error: "Invalid or expired token" }, { status: 401 }) };
-    }
-
-    return { user };
-  } catch {
+  if (!dbUser || dbUser.tokenVersion !== (user.tokenVersion ?? 0)) {
     return { error: NextResponse.json({ error: "Invalid or expired token" }, { status: 401 }) };
   }
+
+  return { user: dbUser };
 }
 
 export async function requireAdmin(user) {
@@ -58,9 +55,22 @@ export async function requireAdmin(user) {
     select: { role: true },
   });
 
-  if (!dbUser || dbUser.role !== "admin") {
+  if (!dbUser || !isAdminLevel(dbUser.role)) {
     return { error: NextResponse.json({ error: "Admin access required" }, { status: 403 }) };
   }
 
   return { user: { ...user, role: dbUser.role } };
+}
+
+export async function requireSuperAdmin(user) {
+  const dbUser = await prisma.user.findUnique({
+    where: { id: user.id },
+    select: { role: true },
+  });
+
+  if (!dbUser || !isSuperAdmin(dbUser.role)) {
+    return { error: NextResponse.json({ error: "Super admin access required" }, { status: 403 }) };
+  }
+
+  return { user: { ...user, role: ROLES.SUPER_ADMIN } };
 }

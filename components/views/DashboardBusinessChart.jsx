@@ -1,121 +1,131 @@
+"use client";
+
 import { useMemo, useState } from "react";
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
-import { getBusinessChartData, getChartPeriodDescription } from "@/lib/businessChart";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { CHART_PERIODS, getBusinessChartData, getChartPeriodDescription } from "@/lib/businessChart";
 import { fmtMoney } from "@/utils/format";
 
 const chartConfig = {
-  dispatched: { label: "Total dispatched", color: "var(--chart-1)" },
-  received: { label: "Received payment", color: "var(--chart-2)" },
+  dispatched: { label: "Dispatched", color: "var(--chart-1)" },
+  received: { label: "Received", color: "var(--chart-2)" },
 };
 
+const PERIOD_LABEL = { weekly: "Weekly", monthly: "Monthly", yearly: "Yearly" };
+
 function formatAxisValue(value) {
+  if (value >= 10000000) return `₹${(value / 10000000).toFixed(1)}Cr`;
   if (value >= 100000) return `₹${(value / 100000).toFixed(1)}L`;
   if (value >= 1000) return `₹${(value / 1000).toFixed(0)}k`;
   return `₹${value}`;
 }
 
-function BusinessLineChart({ data, period }) {
+function TrendChart({ data, period }) {
   return (
-    <ChartContainer config={chartConfig} className="h-[280px] w-full">
-      <LineChart data={data} accessibilityLayer margin={{ left: 8, right: 8, top: 8, bottom: 0 }}>
-        <CartesianGrid vertical={false} />
-        <XAxis
-          dataKey="label"
-          tickLine={false}
-          axisLine={false}
-          tickMargin={8}
-          minTickGap={period === "weekly" ? 24 : 16}
-        />
-        <YAxis
-          tickLine={false}
-          axisLine={false}
-          width={56}
-          tickFormatter={formatAxisValue}
-        />
-        <ChartTooltip
-          content={
-            <ChartTooltipContent
-              formatter={(value) => fmtMoney(Number(value))}
+    <>
+      <div className="chart-legend">
+        <span><i style={{ background: "var(--chart-1)" }} aria-hidden /> Dispatched</span>
+        <span><i style={{ background: "var(--chart-2)" }} aria-hidden /> Received</span>
+      </div>
+
+      <div className="chart-body">
+        <ChartContainer config={chartConfig} className="aspect-auto h-[268px] w-full">
+          <AreaChart data={data} margin={{ left: 4, right: 10, top: 10, bottom: 0 }}>
+            <defs>
+              <linearGradient id="dl-dispatched" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="var(--chart-1)" stopOpacity={0.28} />
+                <stop offset="100%" stopColor="var(--chart-1)" stopOpacity={0} />
+              </linearGradient>
+              <linearGradient id="dl-received" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="var(--chart-2)" stopOpacity={0.22} />
+                <stop offset="100%" stopColor="var(--chart-2)" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid vertical={false} strokeDasharray="4 6" />
+            <XAxis
+              dataKey="label"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={10}
+              minTickGap={period === "weekly" ? 24 : 12}
+              fontSize={11}
             />
-          }
-        />
-        <ChartLegend content={<ChartLegendContent />} />
-        <Line
-          type="monotone"
-          dataKey="dispatched"
-          stroke="var(--color-dispatched)"
-          strokeWidth={2.5}
-          dot={false}
-          activeDot={{ r: 4 }}
-        />
-        <Line
-          type="monotone"
-          dataKey="received"
-          stroke="var(--color-received)"
-          strokeWidth={2.5}
-          dot={false}
-          activeDot={{ r: 4 }}
-        />
-      </LineChart>
-    </ChartContainer>
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              width={54}
+              tickFormatter={formatAxisValue}
+              fontSize={11}
+            />
+            <ChartTooltip
+              content={<ChartTooltipContent formatter={(value) => fmtMoney(Number(value))} />}
+            />
+            <Area
+              type="monotone"
+              dataKey="dispatched"
+              stroke="var(--chart-1)"
+              strokeWidth={2.6}
+              fill="url(#dl-dispatched)"
+              dot={false}
+              activeDot={{ r: 5, strokeWidth: 2, stroke: "var(--card)" }}
+            />
+            <Area
+              type="monotone"
+              dataKey="received"
+              stroke="var(--chart-2)"
+              strokeWidth={2.6}
+              fill="url(#dl-received)"
+              dot={false}
+              activeDot={{ r: 5, strokeWidth: 2, stroke: "var(--card)" }}
+            />
+          </AreaChart>
+        </ChartContainer>
+      </div>
+    </>
   );
 }
 
 export default function DashboardBusinessChart({ orders, payments }) {
   const [period, setPeriod] = useState("monthly");
 
-  const weeklyData = useMemo(
-    () => getBusinessChartData(orders, payments, "weekly"),
-    [orders, payments]
+  const data = useMemo(
+    () => getBusinessChartData(orders, payments, period),
+    [orders, payments, period]
   );
-  const monthlyData = useMemo(
-    () => getBusinessChartData(orders, payments, "monthly"),
-    [orders, payments]
-  );
-  const yearlyData = useMemo(
-    () => getBusinessChartData(orders, payments, "yearly"),
-    [orders, payments]
-  );
+
+  const hasActivity = data.some((d) => d.dispatched > 0 || d.received > 0);
 
   return (
-    <Card className="dashboard-business-chart">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-base">Business overview</CardTitle>
-        <CardDescription>
-          Total dispatched vs received payment across all franchises
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Tabs value={period} onValueChange={setPeriod}>
-          <TabsList className="mb-4">
-            <TabsTrigger value="weekly">Weekly</TabsTrigger>
-            <TabsTrigger value="monthly">Monthly</TabsTrigger>
-            <TabsTrigger value="yearly">Yearly</TabsTrigger>
-          </TabsList>
+    <div className="panel dashboard-business-chart">
+      <div className="panel-head">
+        <div>
+          <h3>Dispatched vs received</h3>
+          <p>{getChartPeriodDescription(period)} across all franchises</p>
+        </div>
+        <div className="segmented-control" role="tablist" aria-label="Chart period">
+          {CHART_PERIODS.map((p) => (
+            <button
+              key={p}
+              type="button"
+              role="tab"
+              aria-selected={period === p}
+              className={`segmented-control-btn${period === p ? " is-active" : ""}`}
+              onClick={() => setPeriod(p)}
+            >
+              {PERIOD_LABEL[p]}
+            </button>
+          ))}
+        </div>
+      </div>
 
-          <TabsContent value="weekly" className="mt-0">
-            <p className="mb-3 text-xs text-muted-foreground">{getChartPeriodDescription("weekly")}</p>
-            <BusinessLineChart data={weeklyData} period="weekly" />
-          </TabsContent>
-          <TabsContent value="monthly" className="mt-0">
-            <p className="mb-3 text-xs text-muted-foreground">{getChartPeriodDescription("monthly")}</p>
-            <BusinessLineChart data={monthlyData} period="monthly" />
-          </TabsContent>
-          <TabsContent value="yearly" className="mt-0">
-            <p className="mb-3 text-xs text-muted-foreground">{getChartPeriodDescription("yearly")}</p>
-            <BusinessLineChart data={yearlyData} period="yearly" />
-          </TabsContent>
-        </Tabs>
-      </CardContent>
-    </Card>
+      {hasActivity ? (
+        <TrendChart data={data} period={period} />
+      ) : (
+        <div className="empty-state">
+          No deliveries or payments in this period. Record a dispatch against a
+          franchise and the trend appears here.
+        </div>
+      )}
+    </div>
   );
 }

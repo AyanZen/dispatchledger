@@ -1,7 +1,14 @@
-import { Menu, X } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
+"use client";
 
-export default function MobileHeader({ menuOpen, onToggle, theme, onToggleTheme }) {
+import { Menu, X } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { AccountAvatar, AlertBell } from "@/components/common/PageHeader";
+import { usePortal } from "@/components/providers/PortalProvider";
+
+export default function MobileHeader({ menuOpen, onToggle }) {
+  const router = useRouter();
+  const { currentUser, alertFranchises } = usePortal();
+
   return (
     <header className="mobile-topbar">
       <button
@@ -11,14 +18,18 @@ export default function MobileHeader({ menuOpen, onToggle, theme, onToggleTheme 
         aria-label={menuOpen ? "Close menu" : "Open menu"}
         aria-expanded={menuOpen}
       >
-        {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        {menuOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
       <div className="mobile-topbar-brand">
-        <div className="side-mark">DL</div>
+        <div className="side-mark" aria-hidden>DL</div>
         <span className="mobile-topbar-title">Dispatch Ledger</span>
       </div>
       <div className="mobile-topbar-actions">
-        <ThemeToggle theme={theme} onToggle={onToggleTheme} compact />
+        <AlertBell
+          count={alertFranchises?.length ?? 0}
+          onClick={() => router.push("/alerts")}
+        />
+        <AccountAvatar user={currentUser} onClick={() => router.push("/profile")} />
       </div>
     </header>
   );

@@ -1,7 +1,7 @@
 import prisma from "../server/lib/prisma.js";
 
 const users = await prisma.user.findMany({
-  select: { username: true, name: true, role: true },
+  select: { username: true, email: true, name: true, role: true },
   orderBy: { createdAt: "asc" },
 });
 

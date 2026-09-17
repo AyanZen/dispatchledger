@@ -2,14 +2,16 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function HomePage() {
   const router = useRouter();
+  const { status } = useSession();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    router.replace(token ? "/dashboard" : "/login");
-  }, [router]);
+    if (status === "loading") return;
+    router.replace(status === "authenticated" ? "/dashboard" : "/login");
+  }, [status, router]);
 
   return null;
 }

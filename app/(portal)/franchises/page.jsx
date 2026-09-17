@@ -2,6 +2,7 @@
 
 import { usePortal } from "@/components/providers/PortalProvider";
 import FranchisesList from "@/components/views/FranchisesList";
+import { isAdminLevel } from "@/lib/roles";
 
 export default function FranchisesPage() {
   const {
@@ -21,7 +22,7 @@ export default function FranchisesPage() {
       setSearch={setSearch}
       onAdd={() => setShowAddFranchise(true)}
       onOpen={openFranchise}
-      isAdmin={currentUser?.role === "admin"}
+      isAdmin={isAdminLevel(currentUser?.role)}
       onDelete={deleteFranchise}
     />
   );

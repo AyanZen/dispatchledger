@@ -1,39 +1,24 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const STORAGE_KEY = "dl-theme";
-const DEFAULT_THEME = "light";
 
-export function getStoredTheme() {
-  if (typeof window === "undefined") return DEFAULT_THEME;
-  return localStorage.getItem(STORAGE_KEY) || DEFAULT_THEME;
-}
-
-export function applyTheme(theme) {
-  document.documentElement.classList.toggle("dark", theme === "dark");
-}
-
+/** Light is the committed world. Any leftover dark preference is cleared. */
 export function useTheme() {
-  const [theme, setThemeState] = useState(getStoredTheme);
-
   useEffect(() => {
-    applyTheme(theme);
-    localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
-
-  const setTheme = useCallback((next) => {
-    setThemeState(next === "light" ? "light" : "dark");
-  }, []);
-
-  const toggleTheme = useCallback(() => {
-    setThemeState((current) => (current === "dark" ? "light" : "dark"));
+    document.documentElement.classList.remove("dark");
+    try {
+      localStorage.setItem(STORAGE_KEY, "light");
+    } catch {
+      /* ignore quota / private mode */
+    }
   }, []);
 
   return {
-    theme,
-    setTheme,
-    toggleTheme,
-    isDark: theme === "dark",
+    theme: "light",
+    setTheme: () => {},
+    toggleTheme: () => {},
+    isDark: false,
   };
 }

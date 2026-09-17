@@ -1,4 +1,5 @@
 import prisma from "../lib/prisma.js";
+import { isAdminLevel } from "@/lib/roles.js";
 
 export async function logActivity(user, action, details) {
   await prisma.activityLog.create({
@@ -19,7 +20,7 @@ export async function fetchBootstrap(role) {
     prisma.reminder.findMany(),
     prisma.activityLog.findMany({ orderBy: { timestamp: "desc" }, take: 2000 }),
     prisma.settings.findUnique({ where: { id: 1 } }),
-    role === "admin" ? prisma.user.findMany({ orderBy: { createdAt: "asc" } }) : Promise.resolve([]),
+    isAdminLevel(role) ? prisma.user.findMany({ orderBy: { createdAt: "asc" } }) : Promise.resolve([]),
   ]);
 
   return {

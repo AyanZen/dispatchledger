@@ -21,9 +21,24 @@ export function sanitizeUsername(username) {
   return value;
 }
 
+export function sanitizeEmail(email) {
+  const value = trimString(email, 254).toLowerCase();
+  if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return null;
+  return value;
+}
+
+/** Derive an internal username slug from the email local part. */
+export function usernameFromEmail(email) {
+  const local = email.split("@")[0] || "";
+  const sanitized = sanitizeUsername(local.replace(/[^a-zA-Z0-9._-]/g, "."));
+  return sanitized || null;
+}
+
 export function sanitizeRole(role) {
   return role === "admin" ? "admin" : "staff";
 }
+
+/** @deprecated Use sanitizeAssignableRole from @/lib/roles.js */
 
 export function isValidCuid(id) {
   return typeof id === "string" && /^c[a-z0-9]{24,}$/i.test(id);

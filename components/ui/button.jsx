@@ -8,11 +8,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-sm hover:bg-[var(--gold-hover)] hover:shadow-[0_4px_16px_rgba(232,200,88,0.25)]",
+        default: "bg-primary text-primary-foreground shadow-sm hover:bg-[var(--gold-hover)] hover:shadow-[var(--dl-shadow-accent)]",
         outline:
-          "border-border bg-transparent hover:bg-muted hover:text-foreground hover:border-[rgba(232,200,88,0.35)] aria-expanded:bg-muted aria-expanded:text-foreground",
+          "border-border bg-transparent hover:bg-muted hover:text-foreground hover:border-[color-mix(in_srgb,var(--dl-violet)_35%,transparent)] aria-expanded:bg-muted aria-expanded:text-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground border border-border hover:bg-[var(--surface-hover)] hover:border-[rgba(248,244,225,0.18)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+          "bg-secondary text-secondary-foreground border border-border hover:bg-[var(--surface-hover)] hover:border-[color-mix(in_srgb,var(--dl-violet)_18%,transparent)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
           "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground",
         destructive:

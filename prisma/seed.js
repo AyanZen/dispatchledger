@@ -1,10 +1,12 @@
-import { ensureDefaults } from "../src/bootstrap/ensureDefaults.js";
-import prisma from "../src/lib/prisma.js";
+import { ensureDefaults } from "../server/bootstrap/ensureDefaults.js";
+import prisma from "../server/lib/prisma.js";
 
 async function main() {
   const result = await ensureDefaults();
   if (result.reason === "exists") {
-    console.log("Seed skipped: admin user already exists.");
+    console.log("Seed skipped: super-admin already exists for SUPER_ADMIN_EMAIL.");
+  } else if (result.created) {
+    console.log("Seed complete: super-admin created.");
   }
 }
 

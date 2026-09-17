@@ -4,7 +4,18 @@ import { usePortal } from "@/components/providers/PortalProvider";
 import Dashboard from "@/components/views/Dashboard";
 
 export default function DashboardPage() {
-  const { totals, orders, payments, franchises, openAlerts } = usePortal();
+  const {
+    totals,
+    orders,
+    payments,
+    franchises,
+    franchiseSummaries,
+    alertFranchises,
+    activityLog,
+    currentUser,
+    openAlerts,
+    openFranchise,
+  } = usePortal();
 
   return (
     <Dashboard
@@ -12,7 +23,13 @@ export default function DashboardPage() {
       orders={orders}
       payments={payments}
       franchises={franchises}
+      franchiseSummaries={franchiseSummaries}
+      alertFranchises={alertFranchises}
+      activityLog={activityLog}
+      currentUser={currentUser}
       onOpenCritical={() => openAlerts("critical")}
+      onOpenAlerts={() => openAlerts("all")}
+      onOpenFranchise={openFranchise}
     />
   );
 }

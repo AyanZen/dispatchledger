@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ShieldCheck, User } from "lucide-react";
+import { ShieldCheck, User, Crown } from "lucide-react";
 import PageHeader from "../common/PageHeader";
 import { validatePassword } from "@/lib/password";
+import { isSuperAdmin, roleLabel } from "@/lib/roles";
 
 export default function ProfileView({ currentUser, onChangePassword }) {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -65,12 +66,11 @@ export default function ProfileView({ currentUser, onChangePassword }) {
           </div>
           <div className="profile-details">
             <p className="profile-name">{currentUser?.name}</p>
-            <p className="profile-meta">@{currentUser?.username}</p>
+            <p className="profile-meta">{currentUser?.email}</p>
             <div className="profile-badges">
-              <span className="profile-tag">{currentUser?.username}</span>
               <span className="profile-role-badge">
-                <ShieldCheck size={14} />
-                {currentUser?.role}
+                {isSuperAdmin(currentUser?.role) ? <Crown size={14} /> : <ShieldCheck size={14} />}
+                {roleLabel(currentUser?.role)}
               </span>
               {joined && <span className="profile-tag profile-tag--muted">Joined {joined}</span>}
             </div>
