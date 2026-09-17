@@ -1,0 +1,11 @@
+﻿const { chromium } = await import("playwright");
+const b = await chromium.launch();
+const p = await (await b.newContext()).newPage();
+p.on("response", r => { if (r.status() >= 400) console.log(r.status() + "  " + r.url()); });
+await p.goto("http://localhost:3001/login", { waitUntil: "networkidle" });
+await p.waitForTimeout(2500);
+console.log("--- computed font on h1:");
+console.log(await p.evaluate(() => { const h = document.querySelector(".login-hero h1"); return h ? getComputedStyle(h).fontFamily : "no h1"; }));
+console.log("--- document.fonts loaded families:");
+console.log(await p.evaluate(() => Array.from(document.fonts).map(f => f.family + " " + f.status).join(" | ")));
+await b.close();

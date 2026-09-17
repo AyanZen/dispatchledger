@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-02T14:13:00.000Z",
+  "title": "Design System: Dispatch Ledger",
+  "extensions": {
+    "colorMeta": {
+      "violet": {
+        "role": "primary",
+        "displayName": "Ledger Violet",
+        "canonical": "#6d4aec",
+        "tonalRamp": ["#2a1768", "#3d2494", "#4b32c0", "#5b37e0", "#6d4aec", "#8b6cff", "#c4b4ff", "#efeaff"]
+      },
+      "violet-strong": {
+        "role": "primary",
+        "displayName": "Violet Strong",
+        "canonical": "#5b37e0",
+        "tonalRamp": ["#24145c", "#351f88", "#4b32c0", "#5b37e0", "#6d4aec", "#8b6cff", "#c4b4ff", "#efeaff"]
+      },
+      "violet-ink": {
+        "role": "primary",
+        "displayName": "Violet Ink",
+        "canonical": "#4b32c0",
+        "tonalRamp": ["#1f1048", "#2e1a78", "#4b32c0", "#5b37e0", "#6d4aec", "#8b6cff", "#c4b4ff", "#f7f4ff"]
+      },
+      "violet-lift": {
+        "role": "primary",
+        "displayName": "Violet Lift",
+        "canonical": "#8b6cff",
+        "tonalRamp": ["#2a1768", "#4b32c0", "#5b37e0", "#6d4aec", "#8b6cff", "#b39aff", "#efeaff", "#f7f4ff"]
+      },
+      "violet-soft": {
+        "role": "primary",
+        "displayName": "Violet Soft",
+        "canonical": "#efeaff",
+        "tonalRamp": ["#4b32c0", "#6d4aec", "#8b6cff", "#c4b4ff", "#efeaff", "#f2eeff", "#f7f4ff", "#fcfbff"]
+      },
+      "violet-softer": {
+        "role": "primary",
+        "displayName": "Violet Softer",
+        "canonical": "#f7f4ff",
+        "tonalRamp": ["#4b32c0", "#6d4aec", "#8b6cff", "#efeaff", "#f2eeff", "#f7f4ff", "#faf9ff", "#ffffff"]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Lavender Ground",
+        "canonical": "#f4f2fb",
+        "tonalRamp": ["#191533", "#3d3866", "#6a6790", "#75729c", "#ddd8f0", "#eae7f6", "#f4f2fb", "#ffffff"]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "White Card",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#191533", "#3d3866", "#6a6790", "#ddd8f0", "#eae7f6", "#f4f2fb", "#faf9ff", "#ffffff"]
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Surface Two",
+        "canonical": "#f7f5fd",
+        "tonalRamp": ["#191533", "#3d3866", "#6a6790", "#ddd8f0", "#eae7f6", "#f0edfa", "#f7f5fd", "#ffffff"]
+      },
+      "surface-3": {
+        "role": "neutral",
+        "displayName": "Surface Three",
+        "canonical": "#f0edfa",
+        "tonalRamp": ["#191533", "#3d3866", "#6a6790", "#ddd8f0", "#eae7f6", "#f0edfa", "#f7f5fd", "#ffffff"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#191533",
+        "tonalRamp": ["#191533", "#2a2448", "#3d3866", "#6a6790", "#75729c", "#ddd8f0", "#eae7f6", "#f4f2fb"]
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Text Two",
+        "canonical": "#3d3866",
+        "tonalRamp": ["#191533", "#2a2448", "#3d3866", "#6a6790", "#75729c", "#ddd8f0", "#eae7f6", "#f4f2fb"]
+      },
+      "mute": {
+        "role": "neutral",
+        "displayName": "Mute",
+        "canonical": "#6a6790",
+        "tonalRamp": ["#191533", "#3d3866", "#6a6790", "#75729c", "#ddd8f0", "#eae7f6", "#f4f2fb", "#ffffff"]
+      },
+      "mute-soft": {
+        "role": "neutral",
+        "displayName": "Mute Soft",
+        "canonical": "#75729c",
+        "tonalRamp": ["#191533", "#3d3866", "#6a6790", "#75729c", "#ddd8f0", "#eae7f6", "#f4f2fb", "#ffffff"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#eae7f6",
+        "tonalRamp": ["#3d3866", "#6a6790", "#a8a4c4", "#ddd8f0", "#eae7f6", "#f4f2fb", "#f7f5fd", "#ffffff"]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Line Strong",
+        "canonical": "#ddd8f0",
+        "tonalRamp": ["#3d3866", "#6a6790", "#a8a4c4", "#ddd8f0", "#eae7f6", "#f4f2fb", "#f7f5fd", "#ffffff"]
+      },
+      "ok": {
+        "role": "secondary",
+        "displayName": "Settled Green",
+        "canonical": "#0e8f66",
+        "tonalRamp": ["#043d2c", "#0a6b4c", "#0e8f66", "#12b981", "#4ad4a4", "#9ee8cc", "#e4f8f0", "#f3fcf8"]
+      },
+      "ok-chart": {
+        "role": "secondary",
+        "displayName": "Received Chart",
+        "canonical": "#12b981",
+        "tonalRamp": ["#043d2c", "#0e8f66", "#12b981", "#34d399", "#6ee7b7", "#a7f3d0", "#e4f8f0", "#f3fcf8"]
+      },
+      "ok-soft": {
+        "role": "secondary",
+        "displayName": "Ok Soft",
+        "canonical": "#e4f8f0",
+        "tonalRamp": ["#0e8f66", "#12b981", "#4ad4a4", "#9ee8cc", "#c5f3e0", "#e4f8f0", "#f3fcf8", "#ffffff"]
+      },
+      "warn": {
+        "role": "tertiary",
+        "displayName": "Term Amber",
+        "canonical": "#a86a00",
+        "tonalRamp": ["#4a2e00", "#7a4c00", "#a86a00", "#d4890a", "#f5a524", "#ffd48a", "#fff4e0", "#fffaf0"]
+      },
+      "warn-chart": {
+        "role": "tertiary",
+        "displayName": "Outstanding Chart",
+        "canonical": "#f5a524",
+        "tonalRamp": ["#7a4c00", "#a86a00", "#d4890a", "#f5a524", "#ffc45a", "#ffe0a0", "#fff4e0", "#fffaf0"]
+      },
+      "warn-soft": {
+        "role": "tertiary",
+        "displayName": "Warn Soft",
+        "canonical": "#fff4e0",
+        "tonalRamp": ["#a86a00", "#f5a524", "#ffc45a", "#ffe0a0", "#fff4e0", "#fff8ec", "#fffaf0", "#ffffff"]
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "Critical Rose",
+        "canonical": "#d42a52",
+        "tonalRamp": ["#5c1024", "#8f1a38", "#d42a52", "#e0335a", "#f06b88", "#ffb3c2", "#ffedf1", "#fff7f8"]
+      },
+      "danger-chart": {
+        "role": "neutral",
+        "displayName": "Alert Solid",
+        "canonical": "#e0335a",
+        "tonalRamp": ["#5c1024", "#d42a52", "#e0335a", "#f06b88", "#ff8fa3", "#ffb3c2", "#ffedf1", "#fff7f8"]
+      },
+      "danger-soft": {
+        "role": "neutral",
+        "displayName": "Danger Soft",
+        "canonical": "#ffedf1",
+        "tonalRamp": ["#d42a52", "#e0335a", "#f06b88", "#ffb3c2", "#ffedf1", "#fff4f6", "#fff7f8", "#ffffff"]
+      },
+      "primary-foreground": {
+        "role": "neutral",
+        "displayName": "On Violet",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#191533", "#3d3866", "#6a6790", "#eae7f6", "#f4f2fb", "#faf9ff", "#fcfbff", "#ffffff"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Login hero only — extra-bold Manrope, clamp 34–50px." },
+      "headline": { "displayName": "Headline", "purpose": "Page titles in the top bar (27px) and rupee figures on metric cards (25px, tabular)." },
+      "title": { "displayName": "Title", "purpose": "Sidebar product name, panel headings, login card title — 15.5px extra-bold." },
+      "body": { "displayName": "Body", "purpose": "Subtitles, table cells, empty-state copy, form text, button labels at 700." },
+      "label": { "displayName": "Label", "purpose": "Uppercase metric labels (11.5px) and table headers (10.5px)." }
+    },
+    "shadows": [
+      { "name": "hairline", "value": "0 1px 2px rgba(25, 21, 51, 0.05)", "purpose": "Search pill, icon pill, segmented active thumb." },
+      { "name": "card-rest", "value": "0 1px 2px rgba(25, 21, 51, 0.04), 0 2px 8px rgba(78, 52, 180, 0.05)", "purpose": "Default lift for sidebar, stat cards, panels, rail cards." },
+      { "name": "card-hover", "value": "0 2px 5px rgba(25, 21, 51, 0.04), 0 8px 24px rgba(78, 52, 180, 0.08)", "purpose": "Metric card hover — pairs with a −3px translate." },
+      { "name": "modal", "value": "0 5px 12px rgba(25, 21, 51, 0.05), 0 20px 48px rgba(78, 52, 180, 0.14)", "purpose": "Login card and dialogs." },
+      { "name": "accent", "value": "0 2px 5px rgba(109, 74, 236, 0.2), 0 8px 22px rgba(109, 74, 236, 0.28)", "purpose": "Primary buttons, DL mark, avatars, toasts." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default easing for hover lift, settle-in, drawer, and modal." },
+      { "name": "settle-in", "value": "0.55s cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Staggered content entrance: 14px rise, 6px blur, 20–210ms delays." },
+      { "name": "glow-drift", "value": "26s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate", "purpose": "Ambient ground glows; disabled under prefers-reduced-motion." },
+      { "name": "hover-lift", "value": "transform 0.28s cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Metric cards −3px; primary buttons −1px." }
+    ],
+    "breakpoints": [
+      { "name": "rail-stack", "value": "1280px" },
+      { "name": "search-narrow", "value": "1100px" },
+      { "name": "two-col", "value": "1024px" },
+      { "name": "mobile", "value": "768px" },
+      { "name": "compact-stats", "value": "480px" },
+      { "name": "hide-mobile-title", "value": "430px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ledger Violet fill with accent shadow — Log payment, Sign in, Save, Add franchise.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m22 2-7 20-4-9-9-4Z\"/><path d=\"M22 2 11 13\"/></svg> Log payment</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 7px; font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: -0.01em; padding: 11px 20px; border-radius: 14px; border: 1px solid transparent; background: #6d4aec; color: #ffffff; box-shadow: 0 2px 5px rgba(109, 74, 236, 0.2), 0 8px 22px rgba(109, 74, 236, 0.28); cursor: pointer; white-space: nowrap; transition: background 0.2s, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: #5b37e0; transform: translateY(-1px); box-shadow: 0 4px 8px rgba(109, 74, 236, 0.24), 0 12px 30px rgba(109, 74, 236, 0.34); } .ds-btn-primary:focus-visible { outline: 2px solid #6d4aec; outline-offset: 2px; } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:disabled { background: #f0edfa; color: #6a6790; box-shadow: none; transform: none; cursor: not-allowed; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "White well with Line border — Log out, New delivery, secondary actions.",
+      "html": "<button class=\"ds-btn-ghost\" type=\"button\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg> New delivery</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 7px; font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: -0.01em; padding: 11px 20px; border-radius: 14px; border: 1px solid #eae7f6; background: #ffffff; color: #3d3866; cursor: pointer; white-space: nowrap; transition: background 0.2s, border-color 0.2s, color 0.2s; } .ds-btn-ghost:hover { background: #efeaff; border-color: #6d4aec; color: #4b32c0; } .ds-btn-ghost:focus-visible { outline: 2px solid #6d4aec; outline-offset: 2px; } .ds-btn-ghost:disabled { opacity: 0.45; cursor: not-allowed; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Recessed Surface Two well that lifts to white on focus with a violet ring.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field__label\">Amount</span><input class=\"ds-input\" type=\"text\" placeholder=\"₹0\" value=\"\" /></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; } .ds-field__label { font-size: 12.5px; font-weight: 700; color: #3d3866; } .ds-input { width: 100%; border: 1px solid #eae7f6; border-radius: 14px; padding: 12px 14px; font-size: 13.5px; font-weight: 500; font-family: inherit; background: #f7f5fd; color: #191533; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; } .ds-input::placeholder { color: #75729c; } .ds-input:hover { border-color: #ddd8f0; } .ds-input:focus { outline: none; background: #ffffff; border-color: #6d4aec; box-shadow: 0 0 0 3px #efeaff; }"
+    },
+    {
+      "name": "Metric Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Hero KPI: uppercase label, tabular rupee, delta chip, optional sparkline.",
+      "html": "<article class=\"ds-stat\"><div class=\"ds-stat__copy\"><span class=\"ds-stat__label\">Outstanding</span><span class=\"ds-stat__value\">₹0</span><div class=\"ds-stat__foot\"><span class=\"ds-stat__note\">Owed right now</span></div></div><svg class=\"ds-stat__spark\" viewBox=\"0 0 96 56\" width=\"96\" height=\"56\" aria-hidden=\"true\"><path d=\"M0 40 C 16 38, 20 36, 32 34 C 44 32, 52 28, 64 22 C 76 16, 84 18, 96 14 L 96 56 L 0 56 Z\" fill=\"#f5a524\" fill-opacity=\"0.28\"/><path d=\"M0 40 C 16 38, 20 36, 32 34 C 44 32, 52 28, 64 22 C 76 16, 84 18, 96 14\" fill=\"none\" stroke=\"#f5a524\" stroke-width=\"2\" stroke-linecap=\"round\"/><circle cx=\"96\" cy=\"14\" r=\"2.4\" fill=\"#f5a524\"/></svg></article>",
+      "css": ".ds-stat { display: grid; grid-template-columns: minmax(0, 1fr) 96px; align-items: end; gap: 12px; min-height: 128px; background: #ffffff; border: 1px solid #eae7f6; border-radius: 20px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(25, 21, 51, 0.04), 0 2px 8px rgba(78, 52, 180, 0.05); font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; transition: box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s; } .ds-stat:hover { border-color: #ddd8f0; box-shadow: 0 2px 5px rgba(25, 21, 51, 0.04), 0 8px 24px rgba(78, 52, 180, 0.08); transform: translateY(-3px); } .ds-stat__label { font-size: 11.5px; color: #6a6790; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; display: block; } .ds-stat__value { font-size: 25px; font-weight: 800; letter-spacing: -0.04em; color: #191533; line-height: 1.1; margin-top: 8px; display: block; white-space: nowrap; font-variant-numeric: tabular-nums; } .ds-stat__foot { margin-top: 10px; } .ds-stat__note { font-size: 11.5px; color: #6a6790; font-weight: 500; } .ds-stat__spark { display: block; width: 96px; height: 56px; justify-self: end; }"
+    },
+    {
+      "name": "Sidebar Nav Item",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Rest in Mute; active is a Violet Soft pill with Violet Ink.",
+      "html": "<nav class=\"ds-nav\"><button class=\"ds-nav__item ds-nav__item--active\" type=\"button\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"22 7 13.5 15.5 8.5 10.5 2 17\"/><polyline points=\"16 7 22 7 22 13\"/></svg> Dashboard</button><button class=\"ds-nav__item\" type=\"button\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16.5 9.4 7.55 4.24\"/><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/></svg> Franchises</button></nav>",
+      "css": ".ds-nav { display: flex; flex-direction: column; gap: 2px; font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; } .ds-nav__item { display: flex; align-items: center; gap: 11px; width: 100%; padding: 11px 14px; border: none; background: transparent; color: #6a6790; border-radius: 14px; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; text-align: left; font-family: inherit; transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav__item:hover { background: #f7f5fd; color: #191533; } .ds-nav__item--active, .ds-nav__item--active:hover { background: #efeaff; color: #4b32c0; } .ds-nav__item:focus-visible { outline: 2px solid #6d4aec; outline-offset: 2px; }"
+    },
+    {
+      "name": "Capture Dock",
+      "kind": "custom",
+      "refersTo": "capture-dock",
+      "description": "Sidebar well for logging a payment — franchise, amount, method — without leaving the nav.",
+      "html": "<div class=\"ds-dock\"><p class=\"ds-dock__title\">Record a payment</p><p class=\"ds-dock__hint\">Franchise, amount, and method — logged from here.</p><select class=\"ds-dock__field\" aria-label=\"Franchise\"><option>Choose franchise</option></select><input class=\"ds-dock__field\" type=\"text\" placeholder=\"Amount\" aria-label=\"Amount\" /><select class=\"ds-dock__field\" aria-label=\"Method\"><option>Cash</option></select><button class=\"ds-dock__pay\" type=\"button\">Log payment</button></div>",
+      "css": ".ds-dock { padding: 14px; border-radius: 18px; background: #f7f4ff; border: 1px solid #eae7f6; font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; } .ds-dock__title { margin: 0; font-size: 13.5px; font-weight: 800; letter-spacing: -0.02em; color: #191533; } .ds-dock__hint { margin: 4px 0 12px; font-size: 11.5px; color: #6a6790; line-height: 1.4; } .ds-dock__field { display: block; width: 100%; height: 40px; margin-bottom: 10px; padding: 0 12px; border-radius: 12px; border: 1px solid #eae7f6; background: #ffffff; color: #191533; font: inherit; font-size: 13px; font-weight: 600; } .ds-dock__field:focus { outline: none; border-color: #6d4aec; box-shadow: 0 0 0 3px #efeaff; } .ds-dock__pay { width: 100%; margin-top: 4px; padding: 11px 20px; border: none; border-radius: 14px; background: #6d4aec; color: #ffffff; font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 5px rgba(109, 74, 236, 0.2), 0 8px 22px rgba(109, 74, 236, 0.28); } .ds-dock__pay:hover { background: #5b37e0; } .ds-dock__pay:focus-visible { outline: 2px solid #6d4aec; outline-offset: 2px; }"
+    },
+    {
+      "name": "Status Stamp",
+      "kind": "chip",
+      "refersTo": "stamp-overdue",
+      "description": "Ageing pill with a 6px status dot. None drops the dot — no deliveries means no standing.",
+      "html": "<div class=\"ds-stamps\"><span class=\"ds-stamp ds-stamp--none\">No Activity</span><span class=\"ds-stamp ds-stamp--paid\">Paid</span><span class=\"ds-stamp ds-stamp--overdue\">Overdue</span><span class=\"ds-stamp ds-stamp--critical\">Critical</span></div>",
+      "css": ".ds-stamps { display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; } .ds-stamp { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 11px; letter-spacing: 0.02em; text-transform: capitalize; padding: 4px 11px; border-radius: 999px; } .ds-stamp::before { content: \"\"; width: 6px; height: 6px; border-radius: 50%; background: currentColor; } .ds-stamp--none { color: #75729c; background: #f7f5fd; } .ds-stamp--none::before { display: none; } .ds-stamp--paid { color: #0e8f66; background: #e4f8f0; } .ds-stamp--overdue { color: #a86a00; background: #fff4e0; } .ds-stamp--critical { color: #d42a52; background: #ffedf1; }"
+    },
+    {
+      "name": "Panel Empty State",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "What a chart board shows when the ledger has no movements — copy, not empty axes.",
+      "html": "<section class=\"ds-panel\"><header class=\"ds-panel__head\"><div><h3>Dispatched vs received</h3><p>This month across all franchises</p></div><div class=\"ds-seg\" role=\"tablist\"><button class=\"ds-seg__btn\" type=\"button\">Weekly</button><button class=\"ds-seg__btn ds-seg__btn--on\" type=\"button\">Monthly</button><button class=\"ds-seg__btn\" type=\"button\">Yearly</button></div></header><p class=\"ds-empty\">No deliveries or payments in this period. Record a dispatch against a franchise and the trend appears here.</p></section>",
+      "css": ".ds-panel { background: #ffffff; border: 1px solid #eae7f6; border-radius: 20px; box-shadow: 0 1px 2px rgba(25, 21, 51, 0.04), 0 2px 8px rgba(78, 52, 180, 0.05); overflow: hidden; font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; } .ds-panel__head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 22px 12px; } .ds-panel__head h3 { font-size: 15.5px; font-weight: 800; letter-spacing: -0.025em; margin: 0; color: #191533; } .ds-panel__head p { margin: 3px 0 0; font-size: 12.5px; color: #6a6790; font-weight: 500; } .ds-seg { display: inline-flex; gap: 3px; padding: 4px; border-radius: 14px; background: #f7f5fd; border: 1px solid #eae7f6; } .ds-seg__btn { border: 0; background: transparent; color: #6a6790; padding: 8px 16px; border-radius: 10px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; } .ds-seg__btn:hover { color: #191533; } .ds-seg__btn--on { background: #ffffff; color: #4b32c0; box-shadow: 0 1px 2px rgba(25, 21, 51, 0.05); } .ds-empty { padding: 46px 20px; text-align: center; color: #6a6790; font-size: 13.5px; font-weight: 500; margin: 0; }"
+    },
+    {
+      "name": "Search Pill",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Top-bar franchise search — fully round white pill, violet ring on focus.",
+      "html": "<label class=\"ds-search\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input type=\"search\" placeholder=\"Search franchises…\" aria-label=\"Search franchises\" /></label>",
+      "css": ".ds-search { display: flex; align-items: center; gap: 9px; width: 280px; padding: 0 16px; height: 44px; border-radius: 999px; background: #ffffff; border: 1px solid #eae7f6; color: #75729c; box-shadow: 0 1px 2px rgba(25, 21, 51, 0.05); font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; transition: border-color 0.2s, box-shadow 0.2s; } .ds-search:focus-within { border-color: #6d4aec; box-shadow: 0 0 0 3px #efeaff; color: #6d4aec; } .ds-search input { border: none; outline: none; background: transparent; flex: 1; min-width: 0; font-family: inherit; font-size: 13.5px; font-weight: 500; color: #191533; } .ds-search input::placeholder { color: #75729c; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Light Violet Console",
+    "overview": "Dispatch Ledger is a brief-pinned Geex-style admin console: a lavender page, white cards floating at 20px, and a single violet accent. It is an operate surface for two admins who need the outstanding balance, who is past terms, and a way to record a payment without leaving the nav. The personality is airy and exact — not a dark gold ledger, not a five-tile KPI strip, not a marketing dashboard.\n\nDensity is generous. The shell sits in 18px of ground; cards lift with a violet-tinted shadow rather than a hard offset. Manrope at extra-bold carries titles and rupee figures; the same family at medium carries body copy. Money is INR, full figures, tabular. When the ledger has no movements, charts do not draw empty axes — they say so in muted copy.\n\nThe operating light is the only light. `color-scheme` is locked to light; there is no shipped dark theme.",
+    "keyCharacteristics": [
+      "Lavender ground with floating white cards (20px radius)",
+      "One violet accent, used sparingly on actions, active nav, and the DL mark",
+      "Sticky white sidebar with a capture dock (franchise, amount, method)",
+      "Three dashboard metric cards with sparklines — not five equal KPIs",
+      "Tabular rupees in full INR; empty charts speak in copy, not fake geometry",
+      "Light only"
+    ],
+    "rules": [
+      { "name": "The One Violet Rule", "body": "One accent. Ledger Violet and its tints (ink, strong, soft, lift) are the same voice. Do not add a second brand color.", "section": "colors" },
+      { "name": "The Light-Only Rule", "body": "The console is light. Do not introduce a dark theme, invert the ground, or gold-on-cream the ledger.", "section": "colors" },
+      { "name": "The Tabular Rupee Rule", "body": "Amounts that a decision depends on are full INR (`₹` + `en-IN` grouping, no paise, no Cr/L/k abbreviation). They use `font-variant-numeric: tabular-nums`. Chart axes may compact (`₹1.2L`); the figure a person acts on does not.", "section": "typography" },
+      { "name": "The Floating Card Rule", "body": "White on lavender, 20px corners, Card-rest shadow. Do not flatten cards into the ground, and do not replace the tinted lift with a hard offset slab.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do sit every operate screen on Lavender Ground with 20px white cards and Card-rest shadow.",
+      "Do use Ledger Violet as the single accent — buttons, active nav, focus, DL mark.",
+      "Do set money in full tabular INR (`₹1,23,456`) on any figure a person acts on.",
+      "Do keep the capture dock (franchise, amount, method) in the sidebar so a payment can be logged without leaving the nav.",
+      "Do replace empty charts with Mute copy that tells the admin what to record next."
+    ],
+    "donts": [
+      "Don't ship a dark theme or restore the released gold-and-cream ledger.",
+      "Don't put five equal KPI tiles on the dashboard; the first viewport is three (Dispatched, Received, Outstanding).",
+      "Don't abbreviate rupees on decision figures, or wrap a rupee onto two lines.",
+      "Don't draw empty chart geometry when there are no movements.",
+      "Don't add a second accent, a kicker above the page title, or a hard offset shadow."
+    ]
+  }
+}
