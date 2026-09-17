@@ -42,8 +42,8 @@ export default function SettingsView({ settings, onSave }) {
           onChange={(e) => setReminderIntervalDays(Number(e.target.value))}
         />
         <p className="hint-text">
-          Franchises with an outstanding balance and a valid email receive a reminder every {reminderIntervalDays} day{reminderIntervalDays === 1 ? "" : "s"}.
-          Configure SMTP settings in <code>backend/.env</code> (SMTP_HOST, SMTP_USER, SMTP_PASS, SMTP_FROM).
+          Franchises with an outstanding balance and a valid email would be reminded every {reminderIntervalDays} day{reminderIntervalDays === 1 ? "" : "s"}.
+          Outbound reminder emails are not enabled in this deployment.
         </p>
 
         <button
