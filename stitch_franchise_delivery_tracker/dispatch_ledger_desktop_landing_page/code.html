@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#c9beff","primary-container":"#6c47ff","surface-container-lowest":"#ffffff","surface-variant":"#dce2f7","on-secondary-container":"#5e6367","on-surface":"#141b2b","on-tertiary-container":"#acffd4","outline":"#797588","on-secondary-fixed":"#171c1f","on-tertiary-fixed":"#002113","on-secondary-fixed-variant":"#43474b","on-secondary":"#ffffff","primary-fixed":"#e6deff","on-primary-container":"#f1ebff","on-primary":"#ffffff","primary":"#5323e6","secondary-fixed-dim":"#c3c7cb","inverse-surface":"#293040","on-primary-fixed-variant":"#4500d8","on-error-container":"#93000a","background":"#f9f9ff","primary-fixed-dim":"#c9beff","surface-dim":"#d3daef","secondary-container":"#dce0e4","tertiary-fixed-dim":"#4edea3","surface-container":"#e9edff","tertiary-container":"#007b54","secondary-fixed":"#dfe3e7","surface":"#f9f9ff","on-tertiary":"#ffffff","surface-container-high":"#e1e8fd","on-primary-fixed":"#1b0063","inverse-on-surface":"#edf0ff","surface-container-low":"#f1f3ff","on-surface-variant":"#484556","tertiary":"#006040","surface-tint":"#5e35f1","secondary":"#5a5f62","tertiary-fixed":"#6ffbbe","surface-bright":"#f9f9ff","outline-variant":"#c9c3d9","error-container":"#ffdad6","on-background":"#141b2b","on-tertiary-fixed-variant":"#005236","surface-container-highest":"#dce2f7","on-error":"#ffffff","error":"#ba1a1a"},borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},spacing:{"margin":"1rem","space-xl":"2rem","gutter":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","space-md":"1rem","space-xs":"0.25rem"},fontFamily:{"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"]},fontSize:{"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"500"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","fontWeight":"800"}],"headline-lg":["28px",{"lineHeight":"36px","fontWeight":"700"}],"label-sm":["10px",{"lineHeight":"14px","fontWeight":"700"}],"headline-xl":["36px",{"lineHeight":"44px","fontWeight":"800"}],"label-lg":["14px",{"lineHeight":"20px","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg-mobile":["22px",{"lineHeight":"30px","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between"><div class="flex items-center gap-3"><img alt="Modern minimalist vector logo for 'Dispatch Ledger', a franchise delivery and logistics ledger tracking platform. An elegant, iconic geometric emblem combining a streamlined delivery box/ledger block with an agile upward-forward momentum arrow, perfectly balanced with clean modern typography 'Dispatch Ledger'. Monochromatic royal purple #6C47FF with subtle violet accents. Clean, flat, isolated on a 100% transparent background with NO gray boxes, NO checkerboard, NO gray tones, and NO dark backdrop. Pure crisp vector iconography.. Design context: - Primary color: #6c47ff
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-full
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W39zevy2jt8-SsUT2TJQBMMg2Q42AOE5hJ8StAl_ZiVyZzZJrN6GlIbiYB8kH0k4nPg9yBOynTt9JNZYPpr7lH3mTWHlACEasNbKwNzIfaPCYDOTIqcPte4q4yzMVEhNOFQ82_A71J3lz4TUYmI8FXTCpDJz-iUuKNiBrD6SA9_UDR0P533jtEJqMLdT2sZqp7fgb46UDHjSpfBGYLuJQXJkuhypDjwKbeFKqH2G0a2rt8JdQ9LN2cb6y8"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Dispatch Ledger</span></div><nav class="hidden md:flex items-center gap-8" data-active-classes="text-primary font-bold"><a aria-current="page" class="transition-colors text-primary font-bold" data-path="landing-page" href="#">Platform</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="franchises" href="#">Franchise Hubs</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="activity-logs" href="#">Ledger Consensus</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Live Dispatch</a></nav><div class="flex items-center gap-4"><div class="hidden sm:flex items-center gap-2"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V0l6j-NuFPcSf5AGNAXVmlT0rdKEFHE6U3IMOKsLJSOgeOCmdvaH4JJa-AzXB12FylwN7tLFvgJXSByTHHyDZgjdDnoInruEKjcrJpJupqn5Fk3XN-kI2oLx2g35IX2y4ZYb_WXHe19Gr9iHIMvFBzE9aS2cqCl29snN0IF2wZ1PgVQujZ39L_5joNbeYX8Yyl7eUD1qdpTf0aPX5_O80FApInZXrTAlocR44MWazHKxcSOioltqmQWYBA"/></div><a class="px-5 py-2 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold shadow-[0_4px_14px_rgba(108,71,255,0.3)] hover:opacity-90 transition-opacity" data-path="dashboard" href="#">Enterprise Console</a></div></div></header><main class="w-full pt-16 bg-background"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow Field -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[520px] bg-gradient-to-b from-primary-fixed/60 via-surface-container-high/40 to-transparent blur-3xl pointer-events-none -z-10 rounded-full"></div>
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 pt-14 pb-20 flex flex-col items-center text-center">
+<!-- Eyebrow Pill Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-lowest shadow-[0_2px_12px_rgba(108,71,255,0.08)] mb-8">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Enterprise Franchise Logistics</span>
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_forward</span>
+</div>
+<!-- Main Heading -->
+<h1 class="font-headline-xl text-headline-xl lg:text-[56px] lg:leading-[64px] font-extrabold text-on-surface tracking-tight max-w-4xl mx-auto">
+        Empowering Your Franchise <br class="hidden sm:inline"/>
+<span class="bg-gradient-to-r from-primary via-primary-container to-surface-tint bg-clip-text text-transparent">Delivery Future.</span>
+</h1>
+<!-- Subtext -->
+<p class="mt-6 font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+        The unified ledger and telematics platform to monitor franchise shipments, automate dispatching, and eliminate SLA breaches across all regional store branches.
+      </p>
+<!-- Action Buttons & Badges -->
+<div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+<a class="px-8 py-3.5 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold shadow-[0_8px_24px_rgba(108,71,255,0.35)] hover:shadow-[0_12px_32px_rgba(108,71,255,0.45)] transition-all transform hover:-translate-y-0.5 flex items-center gap-2" href="#pilot">
+<span>Start Free Pilot</span>
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</a>
+<a class="px-8 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-label-lg font-bold shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:bg-surface-container-low transition-all flex items-center gap-2" href="#demo">
+<span class="material-symbols-outlined text-primary-container text-[20px]">play_circle</span>
+<span>Watch Live Demo</span>
+</a>
+</div>
+<!-- Micro Trust Metrics -->
+<div class="mt-8 flex items-center gap-6 text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">verified</span>
+<span>SOC2 Type II Certified</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">speed</span>
+<span>Sub-Second Telematics</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">bolt</span>
+<span>Zero Hardware Upfront</span>
+</div>
+</div>
+<!-- Hero Visual / Bento Mockup Preview -->
+<div class="relative w-full max-w-6xl mt-14">
+<!-- Ambient Decorative Blurs -->
+<div class="absolute -left-12 top-1/4 w-72 h-72 bg-primary-fixed/50 rounded-full blur-2xl -z-10"></div>
+<div class="absolute -right-12 bottom-12 w-80 h-80 bg-tertiary-fixed-dim/30 rounded-full blur-3xl -z-10"></div>
+<!-- Main Console Card Canvas -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-[0_20px_50px_rgba(108,71,255,0.08)] p-6 lg:p-8 text-left relative overflow-hidden">
+<!-- Mockup Top Bar -->
+<div class="flex flex-wrap items-center justify-between pb-6 gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Store Cluster Ledger • Northeast Division</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time telematics node • 84 Active Route Fleets</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Synchronized 1s ago
+              </span>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors">
+                Export Ledger
+              </button>
+</div>
+</div>
+<!-- Hero Interior Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Left Col: Key Telemetry & KPI Cards -->
+<div class="md:col-span-4 flex flex-col gap-5">
+<!-- Card: Total Volume / Velocity -->
+<div class="p-6 rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Consensus Dispatches</span>
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-container/15 text-tertiary-container font-label-sm text-label-sm font-bold">+18.2% MoM</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-extrabold text-on-surface">$16,058</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">settled today</span>
+</div>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Average per-drop fulfillment cost reduced by 22.4¢</p>
+<!-- Mini Bar Sparkline -->
+<div class="mt-4 pt-4 flex items-end justify-between h-14 gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-[40%]"></div>
+<div class="w-full bg-surface-container rounded-full h-[65%]"></div>
+<div class="w-full bg-surface-container rounded-full h-[50%]"></div>
+<div class="w-full bg-primary rounded-full h-[85%]"></div>
+<div class="w-full bg-surface-container rounded-full h-[70%]"></div>
+<div class="w-full bg-primary-container rounded-full h-[95%]"></div>
+<div class="w-full bg-surface-container rounded-full h-[60%]"></div>
+</div>
+</div>
+<!-- Card: SLA & Velocity Gauge -->
+<div class="p-6 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">On-Time SLA Guarantee</span>
+<span class="material-symbols-outlined text-tertiary-container">verified_user</span>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e9edff" stroke-width="3.5"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#007b54" stroke-dasharray="98.4, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-headline-md text-headline-md text-on-surface font-extrabold">98%</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">98.4% On-Time</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Across 1,248 deliveries today</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Target: 95.0%</span>
+<span class="text-tertiary-container font-bold">+3.4% Outperformed</span>
+</div>
+</div>
+</div>
+<!-- Middle / Right Col: Reference Mockup Imagery & Live Ledger Feed -->
+<div class="md:col-span-8 flex flex-col gap-5">
+<!-- Top Preview Strip with Reference Imagery Integration -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container-high h-64 lg:h-72">
+<img alt="Dispatch Ledger Desktop Dashboard Interface" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-a5h4ZB4g4sy9t5Di_SYvlacave_mCpzJ57rMRWYlW-Ua6yA3izE0SdM1YLlLmVN52ym-ihPTYMuiBvvqQhifi8QESGgaslckHM5le2BsepsWE9qDxwlsMoCGgXA_ehRSx-KJB6iwRUhGX_6N8GBNeyHastpr-zyZl2Og4wGrRwN6IuyxHm8S5pYWvBKbMMzruisUBpO12joQrpCEbTvSJj3BqOs1ferXZISKfP69cW0-lZ9RIAQYhpLGUyhumH8_6fc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-6 right-6 flex items-center justify-between text-surface-container-lowest">
+<div>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold uppercase">Dynamic Dispatch Feed</span>
+<h4 class="font-headline-md text-headline-md text-surface-container-lowest mt-1">Multi-Store Consolidated Telematics Flow</h4>
+</div>
+<button class="px-4 py-2 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-md text-label-md font-bold hover:bg-surface-container-lowest transition-colors flex items-center gap-1.5">
+<span>Explore Mesh Map</span>
+<span class="material-symbols-outlined text-[16px]">map</span>
+</button>
+</div>
+</div>
+<!-- Live Ledger Verification Pipeline -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="p-4 rounded-lg bg-surface-container-low flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">Hub #04 (Tri-Borough)</span>
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+</div>
+<span class="font-headline-md text-headline-md font-extrabold text-on-surface">342 Dispatched</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Avg fulfillment: 18.2 min</span>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">Hub #12 (Metro East)</span>
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+</div>
+<span class="font-headline-md text-headline-md font-extrabold text-on-surface">519 Dispatched</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Avg fulfillment: 14.5 min</span>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">Franchise Pool Payouts</span>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</div>
+<span class="font-headline-md text-headline-md font-extrabold text-primary">$49,200</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Instant Ledger Settlement</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Logo Cloud Strip -->
+<section class="w-full bg-surface-container-low/60 py-12">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+<p class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold">
+        Trusted By Leading Multi-Unit Franchise Operators
+      </p>
+<div class="mt-8 flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-65 grayscale hover:grayscale-0 transition-all">
+<!-- Domino's -->
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-extrabold tracking-tighter text-on-surface">
+<span class="material-symbols-outlined text-[26px]">local_pizza</span>
+<span>Domino's</span>
+</div>
+<!-- Subway -->
+<div class="flex items-center gap-1.5 font-headline-md text-headline-md font-extrabold italic tracking-tight text-on-surface">
+<span class="material-symbols-outlined text-[24px]">fastfood</span>
+<span>SUBWAY</span>
+</div>
+<!-- Wingstop -->
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-extrabold tracking-wide text-on-surface">
+<span class="material-symbols-outlined text-[24px]">flight_takeoff</span>
+<span>WINGSTOP</span>
+</div>
+<!-- 7-Eleven -->
+<div class="flex items-center gap-1.5 font-headline-md text-headline-md font-extrabold tracking-tighter text-on-surface">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+<span>7-ELEVEN</span>
+</div>
+<!-- Papa Johns -->
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-extrabold tracking-tight text-on-surface">
+<span class="material-symbols-outlined text-[24px]">local_shipping</span>
+<span>PAPA JOHNS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3-Column Core Features -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-24">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Enterprise Engine</span>
+<h2 class="mt-3 font-headline-xl text-headline-xl font-extrabold text-on-surface tracking-tight">
+        Engineered Specifically for High-Volume Franchise Fleets
+      </h2>
+<p class="mt-4 font-body-lg text-body-lg text-on-surface-variant">
+        Eliminate courier blindspots, cross-store disputes, and missed order SLAs with cryptographically verifiable dispatch workflows.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature Card 1 -->
+<div class="rounded-xl bg-surface-container-lowest p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between hover:shadow-[0_16px_40px_rgba(108,71,255,0.08)] transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-[26px]">route</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">
+            Streamline Sales With Seamless Dispatch
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Dynamically bundle delivery waves between adjacent franchise units. Re-route orders automatically when kitchen volume hits peak threshold.
+          </p>
+</div>
+<!-- Mini Widget Illustration -->
+<div class="mt-8 p-4 rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md mb-2">
+<span>Dynamic Routing Sync</span>
+<span class="text-primary font-bold">Auto-Balancing</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-4/5"></div>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>89 Active Couriers</span>
+<span>0 Queue Delays</span>
+</div>
+</div>
+</div>
+<!-- Feature Card 2 -->
+<div class="rounded-xl bg-surface-container-lowest p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between hover:shadow-[0_16px_40px_rgba(108,71,255,0.08)] transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed-dim/40 flex items-center justify-center text-tertiary mb-6">
+<span class="material-symbols-outlined text-[26px]">account_balance_wallet</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">
+            Real-Time Ledger Insights &amp; Settlement
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Automatic split billing and tip reconciliation across corporate and individual franchise entities without month-end accounting headaches.
+          </p>
+</div>
+<!-- Mini Widget Illustration -->
+<div class="mt-8 p-4 rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md mb-2">
+<span>Consensus Settlement</span>
+<span class="text-tertiary font-bold">Verified</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-tertiary">check_circle</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">$14,289.40</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm ml-auto">InstaPay Node</span>
+</div>
+</div>
+</div>
+<!-- Feature Card 3 -->
+<div class="rounded-xl bg-surface-container-lowest p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between hover:shadow-[0_16px_40px_rgba(108,71,255,0.08)] transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-[26px]">share_location</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">
+            Driver Telematics &amp; Geofenced Handoffs
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            High-precision geofences pinpoint vehicle arrival down to individual curb stalls, reducing driver idle times by up to 6.8 minutes per drop.
+          </p>
+</div>
+<!-- Mini Widget Illustration -->
+<div class="mt-8 p-4 rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md mb-2">
+<span>Store Stall #3 Geofence</span>
+<span class="text-primary font-bold">14s to Dock</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">electric_moped</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold text-on-surface">Unit 104 • Driver Marco V.</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Contactless Proof of Drop</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Deep Dive Split Mockup Section (Reference https://lh3.googleusercontent.com/aida-public/AB6AXuBsDMLzO039x7E1SkT1lNiZtHIpxm_7gEovzXPGPH2UeOPBmZzi48h-r78ZhEHnpN6yYvPdSP-_u1nO9yCCawGLv8yCpZXB235f8ek2zvLyNBonR6QjK3OeHi6LFPnENv3lTkAAdBkCteetKwdyIDdDWejUj-cDRQ_eTslmUclZFOWiVlrgpn-xdOH2lHDuFgp17sWQpzqOnGCOyd4IjS6deAD3yY2z_KgSmykLYWPdlr2MRYX_0rzZ8gKnjMjy21jxQnQ) -->
+<section class="w-full bg-surface-container-low/40 py-24">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left: Image Reference Presentation -->
+<div class="lg:col-span-6 relative">
+<div class="rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(108,71,255,0.12)]">
+<img alt="Dispatch Ledger Mobile and In-Cab Telematics Integration" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb5yM2_O_L7QGHkiws0ToqdCarBZXtL9Zm5QIoI9OcSuewFZ3zzKiNFi-U3pAkcyDEG12NKroxxprGTLUPcZdy3bkHGOrlb2pyECP2Zi4SQ8xrGeCTr7IWHTYz4ecmsua94XaF_gDl6C1X2kRZvMRvgpNHa9smnLHQg-2V97wPCmzIQGivbOGNWkrhMDjHz_-ZkBzoz0ykpzC9RSwzdAiIdA_96mSysg-7PyLCyCfS5dcnzB7IlkqnJgQ8ZgaDcAfiqrU"/>
+</div>
+<!-- Floating Status Badge -->
+<div class="absolute -bottom-6 -right-6 p-4 rounded-lg bg-surface-container-lowest shadow-xl hidden sm:flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed-dim/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">network_check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Sub-Second Driver Handoff</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validated via Store Beacon #41</p>
+</div>
+</div>
+</div>
+<!-- Right: Content & Bulletpoints -->
+<div class="lg:col-span-6 flex flex-col">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Complete Multi-Location Control</span>
+<h2 class="mt-3 font-headline-xl text-headline-xl font-extrabold text-on-surface tracking-tight">
+            Stop Relying on Disconnected Third-Party Delivery Apps.
+          </h2>
+<p class="mt-4 font-body-lg text-body-lg text-on-surface-variant">
+            Own your customer data, prevent royalty leakage, and orchestrate first-party drivers, third-party gig fleets, and cross-franchise delivery pools from a single control cockpit.
+          </p>
+<div class="mt-8 flex flex-col gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-primary mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<strong class="font-headline-md text-[16px] text-on-surface block">Automated Spillover Protection</strong>
+<span class="font-body-md text-body-md text-on-surface-variant">When order queues exceed kitchen capacity, orders are transparently shifted to sister units in real time.</span>
+</div>
+</div>
+<div class="flex items-start gap-3.5">
+<div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-primary mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<strong class="font-headline-md text-[16px] text-on-surface block">Audit-Proof Ledger Dispatches</strong>
+<span class="font-body-md text-body-md text-on-surface-variant">Every drop, tip transaction, and mileage record is logged to an immutable tamper-evident ledger for effortless royalty reporting.</span>
+</div>
+</div>
+<div class="flex items-start gap-3.5">
+<div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-primary mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<strong class="font-headline-md text-[16px] text-on-surface block">Turnkey POS &amp; Kitchen Screen Integrations</strong>
+<span class="font-body-md text-body-md text-on-surface-variant">Plugs natively into Toast, Brink, Revel, NCR Aloha, and custom proprietary franchise setups within 48 hours.</span>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container-highest text-on-surface font-label-lg text-label-lg font-bold hover:bg-surface-container transition-colors" href="#demo">
+<span>Read Enterprise Whitepaper</span>
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive FAQ Section -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- FAQ Left Header & Contact Float -->
+<div class="lg:col-span-4 flex flex-col justify-between">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Frequently Asked Questions</span>
+<h2 class="mt-3 font-headline-xl text-headline-xl font-extrabold text-on-surface tracking-tight">
+            Clear Answers for Franchise Owners.
+          </h2>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant">
+            Everything you need to know about setting up your multi-unit dispatch ledger, driver onboarding, and billing.
+          </p>
+</div>
+<!-- Floating Card: Don't see your question? -->
+<div class="mt-8 p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Need a custom regional rollout?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Our enterprise logistics architects offer full integration assistance.</p>
+</div>
+<a class="font-label-lg text-label-lg text-primary font-bold hover:underline flex items-center gap-1" href="tel:18003477282">
+<span>Speak with an Architect</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- FAQ Right Accordions -->
+<div class="lg:col-span-8 flex flex-col gap-4" id="faq-accordion-group">
+<!-- FAQ Item 1 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all">
+<button class="w-full p-6 text-left flex items-center justify-between gap-4 font-headline-md text-headline-md text-on-surface focus:outline-none" onclick="toggleFaq(this)">
+<span>How does Dispatch Ledger sync multiple franchise ownership groups?</span>
+<span class="material-symbols-outlined transform transition-transform duration-200 text-primary">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 font-body-md text-body-md text-on-surface-variant hidden">
+            Dispatch Ledger treats each store as an autonomous cryptographically signed node while providing master divisional rolls-ups for regional franchisors. Royalties, delivery fees, and tips are segregated automatically according to your custom franchise agreement rules.
+          </div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all">
+<button class="w-full p-6 text-left flex items-center justify-between gap-4 font-headline-md text-headline-md text-on-surface focus:outline-none" onclick="toggleFaq(this)">
+<span>Can we mix our in-house drivers with DoorDash Drive or Uber Direct?</span>
+<span class="material-symbols-outlined transform transition-transform duration-200 text-primary">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 font-body-md text-body-md text-on-surface-variant hidden">
+            Yes, seamlessly. Dispatch Ledger utilizes a dynamic routing rule engine. You can prioritize in-house store drivers first for high-margin or VIP deliveries, and auto-dispatch third-party fleets as automated overflow fallback when demand peaks.
+          </div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all">
+<button class="w-full p-6 text-left flex items-center justify-between gap-4 font-headline-md text-headline-md text-on-surface focus:outline-none" onclick="toggleFaq(this)">
+<span>Do drivers need specialized mobile hardware?</span>
+<span class="material-symbols-outlined transform transition-transform duration-200 text-primary">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 font-body-md text-body-md text-on-surface-variant hidden">
+            No specialized devices are required. Drivers can download the lightweight native iOS or Android app, or operate directly via web-app links sent by automated SMS dispatched from the store ledger.
+          </div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all">
+<button class="w-full p-6 text-left flex items-center justify-between gap-4 font-headline-md text-headline-md text-on-surface focus:outline-none" onclick="toggleFaq(this)">
+<span>What POS systems do you support natively?</span>
+<span class="material-symbols-outlined transform transition-transform duration-200 text-primary">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 font-body-md text-body-md text-on-surface-variant hidden">
+            We feature certified native two-way webhooks with Toast, Brink POS, NCR Aloha, Revel Systems, Square for Restaurants, and Clover. For bespoke enterprise legacy systems, our REST and GraphQL APIs offer effortless custom webhook ingestion.
+          </div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all">
+<button class="w-full p-6 text-left flex items-center justify-between gap-4 font-headline-md text-headline-md text-on-surface focus:outline-none" onclick="toggleFaq(this)">
+<span>How long does the 14-day free pilot take to deploy?</span>
+<span class="material-symbols-outlined transform transition-transform duration-200 text-primary">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 font-body-md text-body-md text-on-surface-variant hidden">
+            A standard 1-to-5 store cluster pilot can be fully connected within 48 hours. Our solutions engineering team provides live onboarding, geofence calibration, and dispatcher training at zero upfront cost.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Wide Bottom CTA Banner (Purple Background) -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-10 w-full" id="pilot">
+<div class="w-full rounded-xl bg-primary-container text-on-primary-container p-10 lg:p-16 relative overflow-hidden shadow-[0_20px_50px_rgba(108,71,255,0.3)]">
+<!-- Decorative Backdrop Graphic -->
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-on-primary-container/10 blur-2xl pointer-events-none"></div>
+<div class="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-primary/40 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl flex flex-col">
+<span class="font-label-md text-label-md uppercase tracking-wider text-tertiary-fixed-dim font-bold">Unify Your Fleet</span>
+<h2 class="mt-3 font-headline-xl text-headline-xl lg:text-[44px] lg:leading-[52px] font-extrabold text-on-primary-container tracking-tight">
+          Take Full Control of Your Franchise Deliveries Today.
+        </h2>
+<p class="mt-4 font-body-lg text-body-lg text-primary-fixed max-w-2xl">
+          Start taking charge of your fleet and build a better tomorrow with continuous cryptographic dispatch verification, geofenced handoffs, and zero SLA breaches.
+        </p>
+<div class="mt-8 flex flex-wrap items-center gap-4">
+<button class="px-8 py-4 rounded-full bg-surface-container-lowest text-primary font-label-lg text-label-lg font-extrabold shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-surface-container-low transition-all">
+            Start 14-Day Free Pilot
+          </button>
+<a class="px-6 py-4 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:opacity-90 transition-all flex items-center gap-2" href="tel:18003477282">
+<span class="material-symbols-outlined text-[18px]">phone</span>
+<span>+1 800-DISPATCH</span>
+</a>
+</div>
+<p class="mt-6 font-body-sm text-body-sm text-primary-fixed/80">
+          No credit card required • 100% cloud-based • Instant multi-unit configuration
+        </p>
+</div>
+</div>
+</section>
+<!-- Comprehensive Desktop Footer -->
+<footer class="w-full bg-surface-container-lowest mt-16 pt-16 pb-12">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12 pb-12">
+<!-- Brand Summary Col -->
+<div class="col-span-2 flex flex-col">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight">Dispatch Ledger</span>
+</div>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant max-w-sm">
+            The standard telematics and cryptographic settlement ledger for multi-unit franchise delivery operations worldwide.
+          </p>
+<div class="mt-6 flex items-center gap-3 text-on-surface-variant font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span>Ledger Network: Operational (99.99%)</span>
+</div>
+</div>
+<!-- Product Col -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Product</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Dynamic Dispatch</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Ledger Consensus</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Geofence Beacons</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">POS Connectors</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Driver Native App</a>
+</div>
+<!-- Solutions Col -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Solutions</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">QSR &amp; Fast Casual</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Pizza Franchises</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Convenience &amp; Retail</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Regional Co-Ops</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Multi-Brand Groups</a>
+</div>
+<!-- Resources & Company Col -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Company</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Security &amp; SOC2</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Developer API</a>
+<a class="font-label-md text-label-md font-bold text-primary hover:underline mt-1" href="tel:18003477282">+1 800-DISPATCH</a>
+</div>
+</div>
+<!-- Footer Bottom Strip -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-on-surface-variant font-body-sm text-body-sm">
+<p>© 2024 Dispatch Ledger Systems Inc. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-on-surface transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-on-surface transition-colors" href="#">Status Node</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Accordion Toggle JavaScript -->
+<script>
+    function toggleFaq(btn) {
+      const parent = btn.closest('.faq-item');
+      const content = parent.querySelector('.faq-content');
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all other items
+      document.querySelectorAll('#faq-accordion-group .faq-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faq-accordion-group .material-symbols-outlined').forEach(i => i.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_8px_rgba(0,0,0,0.03)] py-12"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6"><div class="flex items-center gap-3"><img alt="Modern minimalist vector logo for 'Dispatch Ledger', a franchise delivery and logistics ledger tracking platform. An elegant, iconic geometric emblem combining a streamlined delivery box/ledger block with an agile upward-forward momentum arrow, perfectly balanced with clean modern typography 'Dispatch Ledger'. Monochromatic royal purple #6C47FF with subtle violet accents. Clean, flat, isolated on a 100% transparent background with NO gray boxes, NO checkerboard, NO gray tones, and NO dark backdrop. Pure crisp vector iconography.. Design context: - Primary color: #6c47ff
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-full
+. The logo should be visually consistent with these brand tokens." class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W39zevy2jt8-SsUT2TJQBMMg2Q42AOE5hJ8StAl_ZiVyZzZJrN6GlIbiYB8kH0k4nPg9yBOynTt9JNZYPpr7lH3mTWHlACEasNbKwNzIfaPCYDOTIqcPte4q4yzMVEhNOFQ82_A71J3lz4TUYmI8FXTCpDJz-iUuKNiBrD6SA9_UDR0P533jtEJqMLdT2sZqp7fgb46UDHjSpfBGYLuJQXJkuhypDjwKbeFKqH2G0a2rt8JdQ9LN2cb6y8"/><span class="font-headline-md text-headline-md text-on-surface">Dispatch Ledger</span></div><div class="flex items-center gap-6 text-on-surface-variant font-body-sm text-body-sm"><span>24 Hubs Online • Continuous Ledger Verification</span><span>© 2024 Dispatch Ledger Systems. All rights reserved.</span></div></div></footer></body></html>
